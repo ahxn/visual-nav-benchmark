@@ -28,6 +28,10 @@ def main() -> None:
         default=["simulator_depth"],
     )
     parser.add_argument("--headless", action="store_true")
+    parser.add_argument(
+        "--device", choices=["auto", "cpu", "cuda"], default="auto",
+        help="inference device for learned_metric_depth (default: auto-detect)",
+    )
     parser.add_argument("--mapper", choices=["pointcloud", "scanline"], default="pointcloud")
     parser.add_argument(
         "--disable-recovery", action="store_true",
@@ -40,7 +44,8 @@ def main() -> None:
     if "learned_metric_depth" in args.methods:
         from .learned_depth import LearnedMetricDepthEstimator
 
-        learned = LearnedMetricDepthEstimator()
+        device = None if args.device == "auto" else args.device
+        learned = LearnedMetricDepthEstimator(device=device)
     results = []
     total = len(scenes) * args.episodes * len(args.methods)
     for scene in scenes:

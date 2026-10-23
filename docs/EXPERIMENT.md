@@ -70,13 +70,13 @@ success less sensitive than the mapping and depth metrics.
 The saved figure compares the RGB stereo pair, ground-truth depth, both inferred
 depth maps, and their absolute-error maps:
 
-![Depth comparison](../results/diagnostics_floorplan1_seed1_calibrated/depth_comparison_panel.png)
+![Depth comparison](../results/diagnostics_floorplan1_seed1_cv_complete/depth_comparison_panel.png)
 
 Blue occupancy cells are true positives, red cells are false positives, gray
 cells are reference obstacles not observed from this pose, green is the start,
 and purple is the goal:
 
-![Occupancy comparison](../results/diagnostics_floorplan1_seed1_calibrated/occupancy_comparison_panel.png)
+![Occupancy comparison](../results/diagnostics_floorplan1_seed1_cv_complete/occupancy_comparison_panel.png)
 
 AI2-THOR RGB frames are converted with RGB channel ordering. Stereo disparity
 first gives axial z-depth, which is converted to Euclidean camera-ray distance

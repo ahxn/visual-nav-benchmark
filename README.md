@@ -50,6 +50,52 @@ Run the deterministic synthetic benchmark:
 
 Results are written to `results/summary.csv` and `results/episodes.json`.
 
+## CPU-only SSH cluster
+
+The test suite, synthetic benchmark, dense and sparse classical CV pipelines,
+mapping, planning, and metrics do not require a GPU. From a Linux login or
+compute node:
+
+```bash
+git clone https://github.com/ahxn/visual-nav-benchmark.git
+cd visual-nav-benchmark
+./scripts/setup_cpu_cluster.sh
+./scripts/run_cpu_cluster.sh test
+./scripts/run_cpu_cluster.sh synthetic
+```
+
+The scripts use `python3` and `.venv` by default. On a module-based cluster,
+load its Python module first, or override either location:
+
+```bash
+PYTHON_BIN=python3.12 VENV_DIR=.venv-cpu ./scripts/setup_cpu_cluster.sh
+VENV_DIR=.venv-cpu EPISODE_COUNT=20 ./scripts/run_cpu_cluster.sh synthetic
+```
+
+For headless AI2-THOR with only the classical methods, install the simulator
+extra and select its off-screen rendering platform:
+
+```bash
+./scripts/setup_cpu_cluster.sh --with-ai2thor
+./scripts/run_cpu_cluster.sh thor-classical
+```
+
+To include Depth Anything V2 without a GPU, install the CPU-only PyTorch wheel
+and explicitly force CPU inference:
+
+```bash
+./scripts/setup_cpu_cluster.sh --with-deep
+EPISODE_COUNT=1 ./scripts/run_cpu_cluster.sh thor-all
+```
+
+The learned method is substantially slower on CPU, so begin with one episode.
+The first AI2-THOR run downloads its Unity build, and the first learned run
+downloads model weights; compute nodes therefore need outbound access or a
+pre-populated cache. AI2-THOR `--headless` uses its `CloudRendering` platform,
+but simulator availability still depends on the cluster's Linux graphics
+drivers. If the simulator cannot start on a particular node, the test and
+synthetic modes remain fully CPU-only and display-independent.
+
 ## AI2-THOR on Windows
 
 AI2-THOR 5.0 publishes Linux and macOS Unity builds. On Windows, create the full
@@ -67,6 +113,7 @@ wsl.exe -d Ubuntu-22.04 -- .venv-linux/bin/visual-nav-thor `
   --scenes FloorPlan2 FloorPlan202 FloorPlan302 FloorPlan402 `
   --episodes 5 --seed 11 `
   --methods simulator_depth classical_stereo classical_sparse_features learned_metric_depth `
+  --device cpu `
   --output results/cv_methods_cross_category_20.json
 ```
 
