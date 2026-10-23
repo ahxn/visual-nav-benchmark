@@ -1,0 +1,60 @@
+{
+  "scene": "FloorPlan1",
+  "seed": 1,
+  "methods": {
+    "simulator_depth": {
+      "depth_abs_rel": 0.0,
+      "depth_rmse": 0.0,
+      "depth_coverage": 1.0,
+      "observed_occupied_cells": 77
+    },
+    "classical_stereo": {
+      "depth_abs_rel": 0.5044463276863098,
+      "depth_rmse": 2.1043360233306885,
+      "depth_coverage": 0.6011444444444445,
+      "observed_occupied_cells": 40
+    },
+    "classical_sparse_features": {
+      "depth_abs_rel": 0.6122375130653381,
+      "depth_rmse": 10.283388137817383,
+      "depth_coverage": 0.00036666666666666667,
+      "observed_occupied_cells": 13
+    },
+    "learned_metric_depth": {
+      "depth_abs_rel": 1.2880892753601074,
+      "depth_rmse": 3.602771520614624,
+      "depth_coverage": 1.0,
+      "observed_occupied_cells": 40
+    }
+  },
+  "feature_geometry": {
+    "harris_corners": 150,
+    "stereo_sift_ratio_matches": 52,
+    "stereo_epipolar_ransac_inliers": 35,
+    "temporal_sift_ratio_matches": 47,
+    "temporal_essential_ransac_inliers": 34,
+    "temporal_move_succeeded": true,
+    "translation_direction": [
+      -0.09978866266726484,
+      -0.03261576544853097,
+      -0.9944739487021695
+    ],
+    "rotation": [
+      [
+        0.9999234683073768,
+        0.006450989867213023,
+        0.010556621518257384
+      ],
+      [
+        -0.006463598035907675,
+        0.9999784371572026,
+        0.0011606554479196701
+      ],
+      [
+        -0.010548906510953263,
+        -0.0012288003791048815,
+        0.9999436037202556
+      ]
+    ]
+  }
+}

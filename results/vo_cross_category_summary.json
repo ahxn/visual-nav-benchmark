@@ -1,0 +1,10 @@
+{
+  "runs": 4,
+  "pairs_attempted": 40,
+  "poses_recovered": 36,
+  "pose_recovery_rate": 0.9,
+  "mean_matches": 38.7,
+  "mean_inlier_ratio": 0.722457962538109,
+  "mean_translation_direction_error_deg": 25.070830895314444,
+  "mean_rotation_error_deg": 7.509382987069579
+}

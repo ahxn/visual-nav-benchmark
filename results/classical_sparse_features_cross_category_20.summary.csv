@@ -1,0 +1,2 @@
+method,recovery_policy,episodes,success_rate,mean_collisions,mean_path_length,mean_spl,mean_occupancy_iou,mean_chamfer,mean_depth_abs_rel,mean_depth_rmse,mean_depth_coverage
+classical_sparse_features,collision_only,20,1.0,3.45,22.1,0.815941583114275,0.22443332453822,1.2522156543312832,0.409163876645479,5.934886599513317,0.0003921803940148891

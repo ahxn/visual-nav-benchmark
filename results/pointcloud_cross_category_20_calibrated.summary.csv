@@ -1,0 +1,4 @@
+method,recovery_policy,episodes,success_rate,mean_collisions,mean_path_length,mean_spl,mean_occupancy_iou,mean_chamfer,mean_depth_abs_rel,mean_depth_rmse,mean_depth_coverage
+classical_stereo,collision_only,20,1.0,1.5,18.35,0.8769886120320903,0.3023982121165121,1.2827928787957013,0.6312620224342884,2.0601211798057824,0.5485859445596115
+learned_metric_depth,collision_only,20,1.0,3.6,20.05,0.8151486434494746,0.2151112321128652,1.4410728587016752,1.2893455451064753,1.9936674534462857,1.0
+simulator_depth,collision_only,20,1.0,3.85,27.6,0.783217385673332,0.3304900634990101,1.2021695904476881,0.0,0.0,1.0
